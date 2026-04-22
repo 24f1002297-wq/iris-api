@@ -20,3 +20,6 @@ async def predict(sl: float, sw: float, pl: float, pw: float):
     features = np.array([[sl, sw, pl, pw]])
     pred = int(model.predict(features)[0])
     return {"prediction": pred, "class_name": class_names[pred]}
+@app.get("/")
+async def root():
+    return {"status": "ok"}
